@@ -1,22 +1,23 @@
-import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
 
 public class Main {
     public static void main(String[] args) throws NoSuchFieldException {
-        AnnotationExample map = new AnnotationExample();
-        Author annotation = map.getClass().getAnnotation(Author.class);
-        System.out.println("Author: " + annotation.value());
+        Jazz jazz = new Jazz();
+        Yahoo annotation = jazz.getClass().getAnnotation(Yahoo.class);
+        System.out.println(annotation.value());
     }
 
-    @Target(ElementType.TYPE)
     @Retention(RetentionPolicy.RUNTIME)
-    public @interface Author {
+    public @interface Yahoo{
         String value();
     }
 
-    @Author("Stephen King")
-    public static class AnnotationExample {
+    @Yahoo("Blue Note")
+    public static class Jazz {
+
     }
+
+
+
 }
